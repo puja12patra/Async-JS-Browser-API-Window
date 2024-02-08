@@ -1,0 +1,47 @@
+ <!-- Ql. Define XMLHttpRequest object, and How is it used in AJAX? -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XMLHttpRequest</title>
+</head>
+<body>
+<h2>XMLHttpRequest object:</h2>
+
+The XMLHttpRequest object is a JS object that allows us to make HTTP requests to a server and retrieve
+data without having to refresh the entire webpage.
+
+<h2>How XMLHttpRequest object used in AJAX:</h2>
+
+<p>AJAX stands for Asynchronous Javascript and XML.
+    It allows web pages to be updated asynchronously without reloading or without effecting rest of the pages.
+    <br>In AJAX (Asynchronous JavaScript and XML), the XMLHttpRequest object is used to communicate with a web server and update parts of a web page without reloading the entire page.</p>
+The following steps are -
+<br>
+<ul>
+    <li><h4>Create an XMLHttpRequest Object</h4>
+        All modern browsers have a built-in XMLHttpRequest object.
+       
+       <p>Syntax for creating an XMLHttpRequest object:</p> <br>
+        
+        variable = new XMLHttpRequest();
+    </li>
+    <li><h4>Define a Callback Function</h4>
+        A callback function is a function passed as a parameter to another function.
+       <br>
+        In this case, the callback function should contain the code to execute when the response is ready.</li>
+    <br>
+    xhttp.onload = function() <br>
+    {
+        // What to do when the response is ready
+    }
+        <li><h4>Send a Request</h4>
+            To send a request to a server, you can use the open() and send() methods of the XMLHttpRequest object:
+         <br>
+            xhttp.open("GET", "ajax_info.html");<br>
+            xhttp.send();</li>
+</ul>
+
+</body>
+</html>

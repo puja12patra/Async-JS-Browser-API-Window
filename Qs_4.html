@@ -1,0 +1,102 @@
+<!--Q4.Compare Promises to callbacks and discuss why Promises are preferred for managing asynchronous
+code. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises and callbacks</title>
+</head>
+
+<body>
+    <h2>Compare Promises to callbacks</h2>
+    <table border="1">
+        <tr>
+            <th>Feature</th>
+            <th>Callbacks</th>
+            <th>Promises</th>
+        </tr>
+        <tr>
+            <th>Error Handling</th>
+            <td>Error handling is often nested, leading to callback hell.</td>
+            <td>Error handling is separate from the main code,making it cleaner and easier to manage.</td>
+        </tr>
+        <tr>
+            <th>Readability</th>
+            <td>Callback chains can become hard to read and understand, especially with multiple nested functions.</td>
+            <td>Promises offer a more linear and readable structure, enhancing code readability.</td>
+        </tr>
+        <tr>
+            <th>Chaining</th>
+            <td>Chaining callbacks can be complex and prone to errors, making code maintenance difficult.</td>
+            <td>Promises allow easy chaining with .then() method, simplifying asynchronous flow.</td>
+        </tr>
+        <tr>
+            <th>Composition</th>
+            <td>Composing multiple asynchronous operations can be challenging with callbacks.</td>
+            <td>Promises support composition with Promise.all and Promise.race, facilitating complex tasks</td>
+        </tr>
+        <tr>
+            <th>Error Propagation</th>
+            <td>Error propagation is manual, requiring explicit handling at each level of nesting.</td>
+            <td>Promises propagate errors automatically up the chain, simplifying error handling.</td>
+        </tr>
+        <tr>
+            <th>Example</th>
+            <td>
+                function fetchData(callback){<br>
+                    setTimeout(function (){<br>
+                      callback('Data received!'); <br>
+                    }, 1000);<br>
+                  }
+                  <br>
+                  function processResult(result){<br>
+                    console.log(result);
+                  }
+                  <br>
+                  fetchData(processResult);
+            
+            </td>
+            <td>
+                function fetchData() {<br>
+                    return new Promise(function (resolve, reject) {<br>
+                      setTimeout(function () {<br>
+                        resolve('Data received!');<br>
+                      }, 1000);<br>
+                    });<br>
+                  }
+                  <br>
+                  fetchData()<br>
+                    .then(function (result) {<br>
+                      console.log(result);<br>
+                    })<br>
+                    .catch(function (error) {<br>
+                      console.error(error);
+                    });
+            </td>
+        </tr>
+    </table>
+ <h2>Reasons why Promises are preferred for managing asynchronous code -</h2>
+    <ol>
+        <li>
+            <h4>Readability:</h4> Promises provide a more structured and readable way to handle asynchronous operations
+            compared to callbacks. With promises, we can chain multiple asynchronous actions together using .then(),
+            resulting in cleaner and more understandable code.
+        </li>
+        <li><h4>Error Handling:</h4> Promises have built-in error handling mechanisms that allow errors to be propagated down the
+            chain until they are caught. This makes error handling more straightforward and eliminates the problem of
+            "callback hell" where error handling becomes nested and hard to manage.</li>
+        <li><h4>Chaining:</h4> Promises support easy chaining of asynchronous operations, which simplifies the process of
+            executing multiple asynchronous tasks sequentially. This chaining capability enhances code readability and
+            makes it easier to express the flow of asynchronous operations.</li>
+        <li><h4>Composition:</h4> Promises support composition through features like Promise.all and Promise.race, which allow
+            multiple asynchronous operations to be executed concurrently or sequentially. This makes it easier to manage
+            complex asynchronous tasks involving multiple operations.</li>
+        <li><h4>Async/Await:</h4> With the introduction of async/await syntax in modern JavaScript, working with Promises has
+            become even more convenient. Async/await allows developers to write asynchronous code in a synchronous
+            style, making it easier to understand and maintain.</li>
+    </ol>
+</body>
+
+</html>

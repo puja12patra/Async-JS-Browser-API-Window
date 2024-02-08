@@ -1,0 +1,66 @@
+<!-- Q3. What is the same-origin policy in the context of AJAX requests, and how can you work around it? -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>same-origin policy</title>
+</head>
+
+<body>
+    <h2>Same-origin policy in the context of AJAX requests</h2>
+    <p>The same-origin policy is a critical security mechanism that restricts how a document
+        or script loaded by one origin can interact with a resource from another origin.
+        <br>According to same-origin policy, scripts running in a browser are allowed to make requests to only same
+        domain pages i,e. the request must have the same protocol,same host and same port number.
+    </p>
+
+    <p>
+        There are scenarios where we might need to make AJAX requests to a different origin,
+        for example, when integrating with third-party APIs or fetching data from a different server.
+        In such cases, we can use techniques like Cross-Origin Resource Sharing (CORS) or
+        JSONP to work around the same-origin policy.
+    </p>
+    However, there are several ways to work around the same-origin policy:
+    <ul>
+        <li>
+            <h3>Cross-Origin Resource Sharing (CORS):</h3>
+            Cross-origin resource sharing (CORS) is an extension of the same-origin policy. It can be used for
+            authorized resource sharing with external third parties.
+            For example, When we want to pull data from external APIs that are public or authorized, we need CORS.
+            <br>It involves the server including specific HTTP headers
+            in its responses to indicate which origins are allowed to access the resources. With
+            CORS, the server can specify which HTTP methods (e.g., GET, POST) and headers are
+            allowed in cross-origin requests.
+        </li>
+        <li>
+            <h3>JSONP (JSON with Padding): </h3>
+            JSONP is a technique that allows cross-origin requests by
+            exploiting the ability to include &lt;script&gt; tags from other domains. It works by
+            requesting JavaScript code from a different domain that wraps the JSON response.
+            While JSONP is easy to implement, it has security vulnerabilities and is limited to
+            GET requests.
+        </li>
+        <li>
+            <h3>Proxy Server:</h3>
+            Another workaround is to set up a server-side proxy that forwards requests
+            from the client to the desired destination. Since the proxy resides on the same origin as
+            the client, it can make requests to other origins without being subject to the same-origin
+            policy. The proxy server then forwards the response back to the client.
+        </li>
+        <li>
+            <h3>Cross-Origin Communication Techniques: </h3>
+            Techniques like window.postMessage() or
+            Cross-Origin Messaging can be used for communication between different windows or iframes
+            with different origins. These techniques allow secure communication between windows/frames
+            hosted on different domains without violating the same-origin policy.
+        </li>
+    </ul>
+    These methods provide developers with options to overcome the limitations imposed
+    by the same-origin policy while ensuring security and compliance with web standards.
+    However, it's essential to choose the appropriate workaround based on the specific
+    requirements and security considerations of the application.
+</body>
+
+</html>

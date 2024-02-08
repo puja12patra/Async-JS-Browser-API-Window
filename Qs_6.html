@@ -1,0 +1,45 @@
+<!-- Q6.Describe the purpose and usage of the localStorage and sessionStorage APIs in web development. Give
+ suitable examples for each. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>localStorage and sessionStorage APIs</title>
+</head>
+
+<body>
+    <h2>localStorage and sessionStorage APIs in web development</h2>
+    localStorage and sessionStorage are two web storage APIs provided by modern web browsers to store key-value pairs
+    locally within the user's browser.
+    <br>They are both part of the Web Storage API but have slightly different purposes and lifespans.
+    <br><h2>1. localStorage:</h2>
+    <ul>
+        <li><h4>Purpose:</h4> localStorage is designed for storing data with no expiration date. The data stored in localStorage
+            persists even after the browser window is closed and is available for future sessions.</li>
+        <li><h4>Usage:</h4> It is commonly used for caching user preferences, storing session tokens, or saving user-generated
+            content.</li>
+        <li><h4>Example:</h4>
+            localStorage.setItem('username', 'JohnDoe');         // Storing data in localStorage<br>
+            const username = localStorage.getItem('username');   // Retrieving data from localStorage<br>
+            console.log(username);     // Output: JohnDoe   
+        </li>
+    </ul>
+    <h2>2. sessionStorage:</h2>
+    <ul>
+        <li><h4>Purpose:</h4> sessionStorage is similar to localStorage but with a shorter lifespan. Data stored in
+            sessionStorage is accessible only within the same session or tab. Once the session ends or the tab is
+            closed, the data is deleted.</li>
+        <li><h4>Usage:</h4> It is useful for temporarily storing data that should only be available during a single session, such
+            as storing data across different pages of a website or maintaining state during page reloads.</li>
+        <li><h4>Example:</h4>
+            sessionStorage.setItem('theme', 'dark');           // Storing data in sessionStorage<br>
+            const theme = sessionStorage.getItem('theme');    // Retrieving data from sessionStorage<br>
+            console.log(theme); // Output: dark
+            
+        </li>
+    </ul>
+    In both cases, the data is stored as strings. If we need to store complex objects, we would need to serialize them to JSON before storing and deserialize them when retrieving. Additionally, it's important to be mindful of storage limitations and not to store sensitive information such as passwords or authentication tokens in localStorage or sessionStorage due to potential security risks.
+</body>
+</html>

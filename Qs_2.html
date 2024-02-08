@@ -1,0 +1,53 @@
+<!-- // Q2. Write a JavaScript program to make an AJAX request using the XMLHttpRequest object to fetch data
+// from a remote API (https://jsonplaceholder.typicode.com/users) and log a list of user names from the
+// response to the browser console and output. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX request</title>
+   
+</head>
+
+<body>
+    <button onclick="getTypicodeName()"> Show Typicode Users Name</button>
+  
+    <ul  id="typicodeNames">
+        
+    </ul>
+    <script>
+        function getTypicodeName() {
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", "https://jsonplaceholder.typicode.com/users", true);
+            xhr.onload = function () 
+            {
+
+                // Check if the request was successful
+                if (xhr.status === 200 ) 
+                {
+                    // Parse the JSON response
+                    const users = JSON.parse(xhr.responseText);
+                   // Log the list of names to the browser console
+                    console.log("List of User Names:",users);
+                    //showing the names listwise by creating list element
+                    const nameslist = document.getElementById('typicodeNames');
+                    users.forEach(ele =>
+                    {
+                        console.log(ele.name);
+                        const nameElement = document.createElement("li");
+                        nameElement.textContent = ele.name;
+                        //It appends the paragraph element to the nameslist.
+                        nameslist.appendChild(nameElement);
+                    });
+                
+                  
+                }
+             }
+            xhr.send();
+        }
+    </script>
+</body>
+
+</html>
